@@ -1,11 +1,17 @@
-# LLM CPU vs GPU Performance Tests
+# LLM CPU vs GPU Inference Time Comparison
 
-This project contains simple, hands-on experiments to compare the inference performance of a Hugging Face transformer model running on **CPU vs GPU**.
+This project contains a simple script to compare the inference time of a Hugging Face transformer model running on **CPU vs GPU**.
 
-Using a sentiment analysis model (`distilbert-base-uncased-finetuned-sst-2-english`), the tests measure how fast the model processes input text in different scenarios:
+The script uses the `distilbert-base-uncased-finetuned-sst-2-english` model for sentiment analysis and measures the time for:
 
-- **Single inference**: Run the model once and compare the time on CPU and GPU.
-- **Batch inference**: Run the model multiple times (e.g., 100 inferences) to see how GPU acceleration scales with workload.
-- **CPU advantage scenario**: Demonstrate cases where CPU can be faster than GPU due to lower data transfer and warm-up overhead.
+- **Single inference** on CPU and GPU
+- **100 inferences** on CPU and GPU
 
-This practical experiment helps understand the trade-offs between CPU and GPU for AI workloads, illustrating when and why GPUs significantly speed up deep learning tasks.
+It also includes a check to see if a GPU is available and prints a message if not.
+
+This test helps demonstrate:
+
+- The overhead of running a single inference on GPU versus CPU
+- The performance gain of running multiple inferences on GPU compared to CPU
+
+Use this experiment to better understand when GPU acceleration helps in NLP model inference tasks.
